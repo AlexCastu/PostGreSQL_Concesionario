@@ -1,0 +1,13 @@
+{
+  "folders": [
+	{
+		"path": "../../Postgres"
+	},
+	{
+		"path": "."
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "Postgres"
+  }
+}

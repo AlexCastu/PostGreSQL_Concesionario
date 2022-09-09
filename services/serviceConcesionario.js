@@ -1,7 +1,7 @@
-const client = require("../conexion");
+const client = require('../dataBase/conexion');
 
 const getManufacters = (res) => {
-  let query = "SELECT * FROM public.manufacters";
+  let query = 'SELECT * FROM public.manufacters';
   client
     .query(query)
     .then((response) => {
@@ -15,10 +15,10 @@ const getManufacters = (res) => {
 
 const getProducts = (res, marca, color, precio, palabraClave) => {
   let query = `SELECT * FROM public.products WHERE name LIKE '%${
-    marca ?? " "
+    marca ?? ' '
   } %' AND color LIKE '%${
-    color ?? " "
-  }%' AND price < ${precio} AND name LIKE '%${palabraClave ?? " "}%'`;
+    color ?? ' '
+  }%' AND price < ${precio} AND name LIKE '%${palabraClave ?? ' '}%'`;
   client
     .query(query)
     .then((response) => {
@@ -36,7 +36,7 @@ const setEliminarCoche = (res, id) => {
   client
     .query(query)
     .then(() => {
-      res.json("Se ha eliminado el articulo");
+      res.json('Se ha eliminado el articulo');
       res.end();
     })
     .catch((err) => {
@@ -59,7 +59,7 @@ const getInfoCoches = (res, id) => {
 };
 
 const getColores = (res) => {
-  let query = "SELECT DISTINCT color FROM public.products";
+  let query = 'SELECT DISTINCT color FROM public.products';
 
   client
     .query(query)
@@ -73,7 +73,7 @@ const getColores = (res) => {
 };
 
 const getMaxPrecio = (res) => {
-  let query = "SELECT MAX(price) FROM public.products";
+  let query = 'SELECT MAX(price) FROM public.products';
 
   client
     .query(query)
